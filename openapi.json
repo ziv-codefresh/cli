@@ -7665,6 +7665,45 @@
           "agents"
         ]
       }
+  },
+  "/agent/{agentId}/reportEvent": {
+    "put": {
+      "parameters": [
+        {
+          "description": "Id of the agent",
+          "in": "path",
+          "name": "agentId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "event": {
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+      "responses": {
+        "200": {
+          "$ref": "#/components/responses/Json"
+        }
+      },
+      "tags": [
+        "agents"
+      ],
+      "operationId": "agent-report-event",
+      "summary": "Events",
+      "x-sdk-interface": "agent.reportEvent"
+    }
   }
   },
   "components": {
