@@ -417,6 +417,17 @@ steps:
           on:
             - success
 
+  debug_deploy_to_npm:
+    title: Publishing To Npm
+    stage: push
+    image: 'codefresh/npm-publish:master'
+    commands:
+      - 'NPM_TOKEN=${{NPM_TOKEN}} npm run ci-publish'
+    when:
+      steps:
+        - name: generate_comletion
+          on:
+            - success
 
   update_brew_formula:
     stage: packages
